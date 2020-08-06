@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Home Page</title>
+</h:head>
+<h:body>
+   
+        <f:facet name="header">
+            <h:outputText value="Welcome User" />
+        </f:facet>
+      
+      
+    
+    
+       
+<h2><h:outputText value="Movie List"></h:outputText></h2>  
+<h:dataTable value="#{movie.fetchMovieDetails()}" var="p">  
+<h:column>  
+<f:facet name="header">Title</f:facet>  
+<h:outputText value="#{p.title}"/>  
+</h:column>  
+<h:column>  
+        <f:facet name="header">Director</f:facet>  
+        <h:outputText value="#{p.director}"/>  
+</h:column>  
+<h:column>  
+        <f:facet name="header">YearOfRelease</f:facet>  
+<h:outputText value="#{p.yearOfRelease}"/>  
+</h:column>
+<h:column> 
+<h:commandButton value="Movie Details" action="#{movie.callReview()}">
+<f:param name="title" value="#{p.title}" />
+</h:commandButton> 
+</h:column>
+
+    </h:dataTable>  
+ 
+</h:body>
+</html>
